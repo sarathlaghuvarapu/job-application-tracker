@@ -1,10 +1,40 @@
+import { useState } from "react";
+
+
 function AddApplication() {
+
+    const [company, setCompany] = useState("");
+
+    const [role, setRole] = useState("");
+
+    const [location, setLocation] = useState("");
+
+    const [status, setStatus] = useState("Applied");
+
+
+    function handleSubmit(event) {
+
+        event.preventDefault();
+
+        console.log({
+            company,
+            role,
+            location,
+            status
+        });
+    }
+
+
     return (
         <div className="page">
 
             <h1>Add Application</h1>
 
-            <form className="application-form">
+
+            <form
+                className="application-form"
+                onSubmit={handleSubmit}
+            >
 
                 <label htmlFor="company">
                     Company Name
@@ -13,6 +43,10 @@ function AddApplication() {
                 <input
                     id="company"
                     type="text"
+                    value={company}
+                    onChange={(event) =>
+                        setCompany(event.target.value)
+                    }
                     placeholder="Enter company name"
                 />
 
@@ -24,6 +58,10 @@ function AddApplication() {
                 <input
                     id="role"
                     type="text"
+                    value={role}
+                    onChange={(event) =>
+                        setRole(event.target.value)
+                    }
                     placeholder="Enter job role"
                 />
 
@@ -35,17 +73,11 @@ function AddApplication() {
                 <input
                     id="location"
                     type="text"
+                    value={location}
+                    onChange={(event) =>
+                        setLocation(event.target.value)
+                    }
                     placeholder="Enter location"
-                />
-
-
-                <label htmlFor="date">
-                    Applied Date
-                </label>
-
-                <input
-                    id="date"
-                    type="date"
                 />
 
 
@@ -53,7 +85,13 @@ function AddApplication() {
                     Status
                 </label>
 
-                <select id="status">
+                <select
+                    id="status"
+                    value={status}
+                    onChange={(event) =>
+                        setStatus(event.target.value)
+                    }
+                >
 
                     <option value="Applied">
                         Applied

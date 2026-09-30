@@ -1,4 +1,8 @@
+import StatCard from "../Components/StatCard";
+
+
 function Dashboard() {
+
     return (
         <div className="page">
 
@@ -8,27 +12,28 @@ function Dashboard() {
                 Welcome to your Job Application Tracker.
             </p>
 
+
             <div className="stats">
 
-                <div className="card">
-                    <h3>Total Applications</h3>
-                    <p>0</p>
-                </div>
+                <StatCard
+                    title="Total Applications"
+                    value={10}
+                />
 
-                <div className="card">
-                    <h3>Interviews</h3>
-                    <p>0</p>
-                </div>
+                <StatCard
+                    title="Interviews"
+                    value={3}
+                />
 
-                <div className="card">
-                    <h3>Rejected</h3>
-                    <p>0</p>
-                </div>
+                <StatCard
+                    title="Rejected"
+                    value={4}
+                />
 
-                <div className="card">
-                    <h3>Selected</h3>
-                    <p>0</p>
-                </div>
+                <StatCard
+                    title="Selected"
+                    value={1}
+                />
 
             </div>
 
